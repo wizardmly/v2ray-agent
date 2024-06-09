@@ -4694,6 +4694,11 @@ defaultBase64Code() {
     local path=$6
     local user=
     user=$(echo "${email}" | awk -F "[-]" '{print $1}')
+
+    mkdir -p "$(dirname "/etc/v2ray-agent/subscribe_local/sing-box/${user}")"
+    mkdir -p "$(dirname "/etc/v2ray-agent/subscribe_local/default/${user}")"
+    mkdir -p "$(dirname "/etc/v2ray-agent/subscribe_local/clashMeta/${user}")"
+    
     if [[ ! -f "/etc/v2ray-agent/subscribe_local/sing-box/${user}" ]]; then
         echo [] >"/etc/v2ray-agent/subscribe_local/sing-box/${user}"
     fi
